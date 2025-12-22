@@ -1,4 +1,4 @@
-package com.servidormagnatas.gnomomuitoloco.Config;
+package com.servidormagnatas.gnomomuitoloco.config;
 
 import com.servidormagnatas.gnomomuitoloco.entities.User;
 import com.servidormagnatas.gnomomuitoloco.repositories.UserRepository;
