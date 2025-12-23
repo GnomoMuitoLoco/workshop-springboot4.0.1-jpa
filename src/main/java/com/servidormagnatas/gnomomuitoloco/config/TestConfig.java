@@ -2,6 +2,7 @@ package com.servidormagnatas.gnomomuitoloco.config;
 
 import com.servidormagnatas.gnomomuitoloco.entities.Order;
 import com.servidormagnatas.gnomomuitoloco.entities.User;
+import com.servidormagnatas.gnomomuitoloco.entities.enums.OrderStatus;
 import com.servidormagnatas.gnomomuitoloco.repositories.OrderRepository;
 import com.servidormagnatas.gnomomuitoloco.repositories.UserRepository;
 
@@ -27,7 +28,7 @@ public class TestConfig implements CommandLineRunner {
     public void run(String... args) throws Exception {
         User u1 = new User(null, "admin", "gnomomuitoloco@hotmail.com", "admin123");
 
-        Order o1 = new Order(null, Instant.parse("2025-12-23T02:51:07Z"), u1);
+        Order o1 = new Order(null, Instant.parse("2025-12-23T02:51:07Z"), OrderStatus.PAID, u1);
 
         userRepository.saveAll(Arrays.asList(u1));
         orderRepository.saveAll(Arrays.asList(o1));
