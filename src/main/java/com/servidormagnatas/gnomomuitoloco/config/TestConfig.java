@@ -43,6 +43,10 @@ public class TestConfig implements CommandLineRunner {
         Product p2 = new Product(null, "MGT-Cash", "Sistema de economia in-game.", 9.99, "");
         Product p3 = new Product(null, "VIP", "Pacote VIP com vantagens exclusivas.", 14.99, "");
 
+        p1.getCategories().add(cat1);
+        p2.getCategories().add(cat2);
+        p3.getCategories().add(cat1);
+
         categoryRepository.saveAll(Arrays.asList(cat1, cat2));
         productRepository.saveAll(Arrays.asList(p1, p2, p3));
 
