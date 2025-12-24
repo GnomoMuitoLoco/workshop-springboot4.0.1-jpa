@@ -1,14 +1,8 @@
 package com.servidormagnatas.gnomomuitoloco.config;
 
-import com.servidormagnatas.gnomomuitoloco.entities.Category;
-import com.servidormagnatas.gnomomuitoloco.entities.Order;
-import com.servidormagnatas.gnomomuitoloco.entities.Product;
-import com.servidormagnatas.gnomomuitoloco.entities.User;
+import com.servidormagnatas.gnomomuitoloco.entities.*;
 import com.servidormagnatas.gnomomuitoloco.entities.enums.OrderStatus;
-import com.servidormagnatas.gnomomuitoloco.repositories.CategoryRepository;
-import com.servidormagnatas.gnomomuitoloco.repositories.OrderRepository;
-import com.servidormagnatas.gnomomuitoloco.repositories.ProductRepository;
-import com.servidormagnatas.gnomomuitoloco.repositories.UserRepository;
+import com.servidormagnatas.gnomomuitoloco.repositories.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -33,6 +27,9 @@ public class TestConfig implements CommandLineRunner {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private OrderItemRepository orderitemRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -62,6 +59,12 @@ public class TestConfig implements CommandLineRunner {
         userRepository.saveAll(Arrays.asList(u1, u2, u3));
         orderRepository.saveAll(Arrays.asList(o1, o2, o3, o4));
 
+        OrderItem oi1 = new OrderItem(o1, p1, 1, p1.getPrice());
+        OrderItem oi2 = new OrderItem(o1, p3, 2, p3.getPrice());
+        OrderItem oi3 = new OrderItem(o2, p3, 1, p3.getPrice());
+        OrderItem oi4 = new OrderItem(o3, p2, 1, p2.getPrice());
+        OrderItem oi5 = new OrderItem(o4, p1, 2, p1.getPrice());
 
+        orderitemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4, oi5));
     }
 }
